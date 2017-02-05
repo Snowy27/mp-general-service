@@ -1,0 +1,17 @@
+{
+  "name": "mp-general-service",
+  "version": "1.0.0",
+  "description": "A skeleton for microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Dolt",
+  "license": "MIT",
+  "dependencies": {
+      "chairo": "3.0.0",
+      "hapi": "16.1.0",
+      "lodash": "4.17.4",
+      "bluebird": "3.4.7"
+  }
+}
