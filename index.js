@@ -57,6 +57,8 @@ let search = new Service('search', routes, {
     SENECA_LISTEN_PORT: 3001
 });
 
+search.startService();
+
 // let helper = new Service('helper', helperRoutes, {
 //     PORT:3002,
 //     SENECA_LISTEN_PORT: 3003,

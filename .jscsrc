@@ -18,7 +18,7 @@
     "requireSpaceBeforeBlockStatements": true,
     "requireParenthesesAroundIIFE": true,
     "requireSpacesInConditionalExpression": true,
-    "requireMultipleVarDecl": "onevar",
+    "requireMultipleVarDecl": { "allExcept": ["require"] },
     "requireBlocksOnNewline": 1,
     "requireCommaBeforeLineBreak": true,
     "requireSpaceBeforeBinaryOperators": true,
