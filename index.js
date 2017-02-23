@@ -19,8 +19,7 @@ let helpHandle = function helpHandle(message) {
     return this.seneca.actAsync({
             service: 'search',
             version: 'v1',
-            method: 'GET',
-            cmd: 'song',
+            cmd: 'getSong',
             random: 2000,
             notRandom: 5
         })
@@ -33,9 +32,9 @@ let routes = [
     {
         method: 'GET',
         version: 'v1',
-        cmd: 'song',
+        path: '{sond_id}',
         handler: getSong,
-        params: ['song_id'],
+        cmd: 'getSong',
         validation: {
             random: Joi.number().integer().max(2020),
             notRandom: Joi.number().integer().required().invalid(0),
@@ -48,7 +47,7 @@ let helperRoutes = [
     {
         method: 'GET',
         version: 'v1',
-        cmd: 'help',
+        path: 'help',
         handler: helpHandle
     }
 ];
@@ -59,8 +58,10 @@ let search = new Service('search', routes, {
 
 search.startService();
 
-// let helper = new Service('helper', helperRoutes, {
-//     PORT:3002,
-//     SENECA_LISTEN_PORT: 3003,
-//     SENECA_CLIENT_PORTS: [3001]
-// });
+let helper = new Service('helper', helperRoutes, {
+    PORT:3002,
+    SENECA_LISTEN_PORT: 3003,
+    SENECA_CLIENT_PORTS: [3001]
+});
+
+helper.startService();

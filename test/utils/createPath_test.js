@@ -17,25 +17,18 @@ describe('createPath tests', function() {
         testRoute = {
             method: 'GET',
             version: 'v1',
-            cmd: 'help',
+            cmd: 'getHelp',
             service: 'test',
-            params: ['id'],
+            path: '{id}/help',
             handler: function () {}
         };
         done();
     });
 
-    it('Should create a path from route with params', (done) => {
+    it('Should create a path from route', (done) => {
 
         let path = service.createPath(testRoute);
         should(path).be.equal('/test/v1/{id}/help');
-        done();
-    });
-
-    it('Should create a path from route without params', (done) => {
-        delete testRoute.params;
-        let path = service.createPath(testRoute);
-        should(path).be.equal('/test/v1/help');
         done();
     });
 });

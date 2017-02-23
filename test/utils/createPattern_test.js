@@ -17,7 +17,8 @@ describe('createPattern tests', function() {
         testRoute = {
             method: 'GET',
             version: 'v1',
-            cmd: 'help',
+            cmd: 'getHelp',
+            path: '{id}/help',
             service: 'test',
             handler: function () {}
         };
@@ -27,7 +28,7 @@ describe('createPattern tests', function() {
     it('Should create a pattern from route', (done) => {
 
         let pattern = service.createPattern(testRoute);
-        should(pattern).be.equal('service:test,version:v1,cmd:help,method:GET');
+        should(pattern).be.equal('service:test,version:v1,cmd:getHelp');
         done();
     });
 
